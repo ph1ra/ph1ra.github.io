@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VEX Project, Sasha Romanenko</title>
+<meta name="description" content="VEX Project, not written up yet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ffffff;
+  --ink:#1c1c1c;
+  --body:#3d3d3d;
+  --muted:#9b9b9b;
+  --rule:#e4e4e4;
+  --accent:#8c2b2f;
+  --measure:64ch;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--body);
+  font-family:"Source Sans 3","Source Sans Pro","Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:17px;
+  line-height:1.66;
+  overflow-x:hidden;
+}
+a{color:inherit}
+img{max-width:100%;height:auto;display:block}
+
+.bar{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:18px 34px;
+  padding:26px 30px 20px;
+  border-bottom:1px solid var(--rule);
+}
+.mark{
+  font-family:Oswald,"Arial Narrow",Haettenschweiler,sans-serif;
+  font-weight:600;font-size:1.02rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;margin-right:auto;white-space:nowrap;
+}
+nav{display:flex;flex-wrap:wrap;gap:6px 26px}
+nav a{
+  font-family:Oswald,"Arial Narrow",Haettenschweiler,sans-serif;
+  font-weight:500;font-size:.76rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;padding-bottom:4px;
+  border-bottom:2px solid transparent;
+}
+nav a:hover,nav a:focus-visible{color:var(--ink)}
+nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
+nav a.pending{color:#c4c4c4}
+
+main{padding:0 30px 90px}
+.page{max-width:700px;margin:0 auto}
+
+h1{
+  font-family:Oswald,"Arial Narrow",Haettenschweiler,sans-serif;
+  font-weight:600;text-transform:uppercase;letter-spacing:.035em;
+  font-size:clamp(2.4rem,7vw,4rem);line-height:1.02;
+  color:var(--ink);margin:70px 0 12px;
+}
+.meta{
+  font-family:Oswald,"Arial Narrow",Haettenschweiler,sans-serif;
+  font-weight:400;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 20px;
+}
+.hr{border:0;border-top:1px solid var(--rule);margin:0 0 34px}
+h2{
+  font-family:Oswald,"Arial Narrow",Haettenschweiler,sans-serif;
+  font-weight:500;font-size:1rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink);margin:52px 0 14px;
+}
+p{margin:0 0 20px;max-width:var(--measure)}
+.lead{font-size:1.18rem;line-height:1.6;color:var(--ink);margin-bottom:34px}
+
+figure{margin:40px 0 44px;text-align:center}
+figure img{margin:0 auto;border:1px solid var(--rule)}
+figcaption{
+  font-family:Oswald,"Arial Narrow",Haettenschweiler,sans-serif;
+  font-weight:400;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);margin-top:12px;
+}
+figure.wide{width:min(94vw,920px);margin-left:50%;transform:translateX(-50%)}
+figure.narrow img{max-width:340px}
+.pair{
+  width:min(94vw,920px);margin:40px 0 44px 50%;transform:translateX(-50%);
+  display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:end;
+}
+.pair figure{margin:0;display:flex;flex-direction:column;justify-content:flex-end}
+.pair img{max-height:320px;width:auto;margin:0 auto}
+
+ol.steps{margin:0 0 26px;padding-left:1.3em;max-width:var(--measure)}
+ol.steps li{margin-bottom:7px;padding-left:.3em}
+
+.skills{
+  border-top:1px solid var(--rule);
+  padding-top:16px;margin-top:40px;
+  font-size:.94rem;color:#5a5a5a;max-width:var(--measure);
+}
+.skills b{color:var(--body)}
+
+.note{color:var(--muted);font-style:italic}
+.todo{color:#b4b4b4;font-style:italic}
+
+.index-list{margin:44px 0 0;border-top:1px solid var(--rule)}
+.row{
+  display:flex;gap:30px;align-items:flex-start;
+  border-bottom:1px solid var(--rule);padding:30px 0;
+  text-decoration:none;color:inherit;
+}
+a.row:hover .row-title,a.row:focus-visible .row-title{color:var(--accent)}
+.row-thumb{width:130px;flex:0 0 130px;background:#f6f6f6;padding:8px}
+.row-thumb img{width:100%;height:150px;object-fit:contain}
+.row-body{flex:1}
+.row-title{
+  font-family:Oswald,"Arial Narrow",Haettenschweiler,sans-serif;
+  font-weight:600;font-size:1.5rem;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--ink);margin:0 0 6px;line-height:1.1;
+}
+.row-meta{
+  font-family:Oswald,"Arial Narrow",Haettenschweiler,sans-serif;
+  font-weight:400;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 10px;
+}
+.row p{margin:0;font-size:.98rem}
+.row.pending .row-title{color:#bcbcbc}
+.tag{
+  display:inline-block;font-family:Oswald,"Arial Narrow",Haettenschweiler,sans-serif;
+  font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--rule);padding:3px 9px;margin-top:10px;
+}
+
+.contact-list{margin:36px 0 0;border-top:1px solid var(--rule);max-width:var(--measure)}
+.contact-list div{
+  display:flex;gap:24px;justify-content:space-between;align-items:baseline;
+  border-bottom:1px solid var(--rule);padding:15px 0;
+}
+.contact-list dt{
+  font-family:Oswald,"Arial Narrow",Haettenschweiler,sans-serif;
+  font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  margin:0;flex:0 0 auto;
+}
+.contact-list dd{margin:0;text-align:right}
+.contact-list a{text-decoration:none;border-bottom:1px solid var(--rule)}
+.contact-list a:hover{border-bottom-color:var(--accent);color:var(--accent)}
+
+footer{
+  border-top:1px solid var(--rule);padding:26px 30px 40px;
+  font-size:.82rem;color:var(--muted);
+}
+footer a{text-decoration:none;border-bottom:1px solid var(--rule)}
+footer a:hover{color:var(--ink)}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  main{padding:0 20px 70px}
+  .bar{padding:20px 20px 14px}
+  .pair{grid-template-columns:1fr;gap:22px}
+  .row{gap:18px}
+  .row-thumb{width:92px;flex:0 0 92px}
+  .row-thumb img{height:110px}
+  .contact-list div{flex-direction:column;gap:2px}
+  .contact-list dd{text-align:left}
+}
+@media print{
+  .bar nav,footer{display:none}
+  body{font-size:11pt}
+}
+</style>
+</head>
+<body>
+<header class="bar">
+  <a class="mark" href="index.html">Sasha Romanenko</a>
+  <nav aria-label="Projects">
+      <a href="l1-rocket.html">L1 Rocket</a>
+      <a href="milk-cap.html">Milk Cap</a>
+      <a href="warman.html" class="pending">Warman</a>
+      <a href="vex.html" class="pending" aria-current="page">VEX</a>
+      <a href="contact.html">Contact</a>
+  </nav>
+</header>
+<main>
+<div class="page">
+  <h1>VEX Project</h1>
+  <p class="meta">VEX Robotics</p>
+  <hr class="hr">
+  <p class="note">This project is not written up yet. The headings below are the same ones used on the other two projects.</p>
+  <p class="todo">[Overview. Two or three sentences on what the robot had to do, what your part in it was, and where the project got to.]</p>
+  <h2>Why we are building it</h2>
+  <p class="todo">[The game, the scoring and the constraint that shaped the design.]</p>
+  <h2>Design</h2>
+  <p class="todo">[Drivetrain, mechanism, the decisions you made and what you rejected.]</p>
+  <h2>Build and testing</h2>
+  <p class="todo">[How it was built, what failed in competition, what you changed.]</p>
+  <h2>What I took from it</h2>
+  <p class="todo">[One thing you got wrong and now do differently.]</p>
+  <p class="skills"><b>Skills used.</b> <span class="todo">[List the tools and processes you actually used.]</span></p>
+</div>
+</main>
+<footer>
+  <a href="mailto:sasha.azizenko@gmail.com">sasha.azizenko@gmail.com</a> &nbsp;&nbsp; +64 210 540 108 &nbsp;&nbsp;
+  <a href="https://www.linkedin.com/in/sasha-romanenko">linkedin.com/in/sasha-romanenko</a>
+</footer>
+</body>
+</html>
