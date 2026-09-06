@@ -85,12 +85,16 @@ figcaption{
 }
 figure.wide{width:min(94vw,920px);margin-left:50%;transform:translateX(-50%)}
 figure.narrow img{max-width:340px}
+figure.medium img{max-width:620px;max-height:360px;width:auto;height:auto;margin:0 auto}
+/* column widths and overall width are set inline so the two pictures cover the
+   same area, sit on a shared centre line, and share one caption baseline */
 .pair{
   width:min(94vw,920px);margin:40px 0 44px 50%;transform:translateX(-50%);
-  display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:end;
+  display:grid;gap:34px;align-items:center;
 }
-.pair figure{margin:0;display:flex;flex-direction:column;justify-content:flex-end}
-.pair img{max-height:320px;width:auto;margin:0 auto}
+.pair figure{margin:0}
+.pair img{width:100%;height:auto;margin:0;border:0;
+  outline:1px solid var(--rule);outline-offset:-1px}
 
 ol.steps{margin:0 0 26px;padding-left:1.3em;max-width:var(--measure)}
 ol.steps li{margin-bottom:7px;padding-left:.3em}
@@ -110,6 +114,15 @@ ol.steps li{margin-bottom:7px;padding-left:.3em}
   font-size:.94rem;color:#5a5a5a;max-width:var(--measure);
 }
 .skills b{color:var(--body)}
+
+.linkline{margin:26px 0 20px}
+.linkline a{
+  font-family:Oswald,"Arial Narrow",Haettenschweiler,sans-serif;
+  font-weight:500;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);text-decoration:none;
+  border:1px solid var(--rule);padding:11px 22px;display:inline-block;
+}
+.linkline a:hover,.linkline a:focus-visible{border-color:var(--accent)}
 
 .note{color:var(--muted);font-style:italic}
 .todo{color:#b4b4b4;font-style:italic}
@@ -169,7 +182,9 @@ footer a:hover{color:var(--ink)}
   body{font-size:16px}
   main{padding:0 20px 70px}
   .bar{padding:20px 20px 14px}
-  .pair{grid-template-columns:1fr;gap:22px}
+  .pair{grid-template-columns:1fr !important;max-width:none !important;gap:24px}
+  .pair img{width:auto;max-width:100%;max-height:300px;margin:0 auto}
+  figure.medium img{max-height:none}
   .row{gap:18px}
   .row-thumb{width:92px;flex:0 0 92px}
   .row-thumb img{height:110px}
@@ -188,7 +203,7 @@ footer a:hover{color:var(--ink)}
   <nav aria-label="Projects">
       <a href="l1-rocket.html">L1 Rocket</a>
       <a href="milk-cap.html">Milk Cap</a>
-      <a href="warman.html" class="pending">Warman</a>
+      <a href="warman.html">Warman</a>
       <a href="vex.html" class="pending" aria-current="page">VEX</a>
       <a href="contact.html">Contact</a>
   </nav>
